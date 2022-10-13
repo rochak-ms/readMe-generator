@@ -2,10 +2,13 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   let badge = "";
-    if(license != "null") {
-    badge = '![License badge](https://shields.io/badge/license-' + license + '-blue.svg)';
-    }
-    return badge;
+  if (license != "null") {
+    badge =
+      "![License badge](https://shields.io/badge/license-" +
+      license +
+      "-blue.svg)";
+  }
+  return badge;
 }
 
 // function that returns the license link
@@ -14,18 +17,18 @@ function renderLicenseLink(license) {
   let licenseLink;
 
   // selects the correct license link for the selected license
-  switch(license){
-    case 'MIT':
-      licenseLink = 'https://mit-license.org/';
+  switch (license) {
+    case "MIT":
+      licenseLink = "https://mit-license.org/";
       break;
-    case 'Apache':
-      licenseLink = 'https://www.apache.org/licenses/LICENSE-2.0.html';
-      break;  
-    case 'GPL':
-      licenseLink = 'https://www.gnu.org/licenses/gpl-3.0.en.html';
+    case "Apache":
+      licenseLink = "https://www.apache.org/licenses/LICENSE-2.0.html";
       break;
-    case 'BSD':
-      licenseLink = 'https://opensource.org/licenses/BSD-3-Clause';
+    case "GPL":
+      licenseLink = "https://www.gnu.org/licenses/gpl-3.0.en.html";
+      break;
+    case "BSD":
+      licenseLink = "https://opensource.org/licenses/BSD-3-Clause";
       break;
     default:
       licenseLink = "";
@@ -39,13 +42,17 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   let licenseSec = "";
   if (license != null) {
-  licenseSec = licenseSec + ' \n Please visit (' + renderLicenseLink(license) + ') for details information.\n';
+    licenseSec =
+      licenseSec +
+      " \n Please visit (" +
+      renderLicenseLink(license) +
+      ") for details information.\n";
   }
   return licenseSec;
 }
 
 //function to generate markdown for README
-const generateMarkdown = data => {
+const generateMarkdown = (data) => {
   return `
   # ${data.title}
   ${renderLicenseBadge(data.license)}
@@ -58,6 +65,7 @@ const generateMarkdown = data => {
   #
   * [Installation](#installation)
   * [Usage](#usage)
+  * [Links](#links)
   * [License](#license)
   * [Contributing](#contributing)
   * [Tests](#tests)
@@ -71,9 +79,16 @@ const generateMarkdown = data => {
   #
   ${data.usage}
 
+  ## Links
+  #
+  Below is the link related to the Project:
+  - GitHub repository - ${
+    "https://github.com/" + data.githubuName + "/" + data.links
+  }
+
   ## License
   #
-  ${renderLicenseBadge(data.license)} 
+  ${renderLicenseBadge(data.license) + "\n"} 
   ${renderLicenseSection(data.license)}
 
   ## Contributing
@@ -86,7 +101,11 @@ const generateMarkdown = data => {
 
   ## Questions
   #
-  If you have any questions about the project, please contact me at ${data.email}. Or you can fine me [Here](https://github.com/${data.githubuName}) on GitHub.
+  If you have any questions about the project, please contact me at ${
+    data.email
+  }. Or you can fine me [Here](https://github.com/${
+    data.githubuName
+  }) on GitHub.
 `;
 };
 
