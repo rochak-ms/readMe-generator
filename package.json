@@ -1,14 +1,22 @@
 {
-  "name": "static-site",
+  "name": "readMe-gen",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Your Task",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Rochak Shrestha",
   "license": "ISC",
   "dependencies": {
     "inquirer": "8.2.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rochak-ms/readMe-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rochak-ms/readMe-generator/issues"
+  },
+  "homepage": "https://github.com/rochak-ms/readMe-generator#readme"
 }
