@@ -44,7 +44,7 @@ function renderLicenseSection(license) {
   if (license != null) {
     licenseSec =
       licenseSec +
-      " \n Please visit (" +
+      " \n Please visit [Here](" +
       renderLicenseLink(license) +
       ") for details information.\n";
   }
@@ -83,7 +83,11 @@ const generateMarkdown = (data) => {
   #
   Below is the link related to the Project:
   - GitHub repository - ${
-    "https://github.com/" + data.githubuName + "/" + data.links
+    "[Click Here](https://github.com/" +
+    data.githubuName +
+    "/" +
+    data.links +
+    ")"
   }
 
   ## License
